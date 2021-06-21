@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 :root {
-    --lightblue: #3f84fb;
-    --darkblue:#1b0a33;
-    --gray: darkgray;
+    --gold: #fca311;
+    --darkblue:#14213d;
+    --black: #000000;
+    --grey: #e5e5e5;
     --fontWeight: 600;
 }
 
@@ -14,17 +15,20 @@
 header {
     display: flex;
     justify-content: center;
-    background: linear-gradient(160deg, var(--lightblue), var(--darkblue));
-    padding: 5px;
-    padding-top: 10px;
+    background: linear-gradient(160deg, var(--darkblue), var(--black));
+    padding: 10px;
 }
-
+html {
+    background-color: dimgrey;
+    color: white;
+}
 /* h tag styling */
 h1,h2,h3,h4 {
     font-weight: var(--fontWeight);
+    margin: 0px;
 }
 h1 { /* title: Weather Dashboard */
-    color: white;
+    color: var(--gold);
     font-size: 200%;
 }
 h2 {/* 'search for a city' and see js code under id=currentWeatherBox*/
@@ -38,52 +42,35 @@ h4 { /* the 5 populated dates under 5 day forecast*/
     font-size: 130%;
 }
 
-/* Classes styling */
-.mainRow { /* Overall container for everything within the main tags */
-    display: flex;
-    margin-left: 5px;
-}
-
 /* left hand column */
 .searchBox {
     padding: 5px;
     width: 25%;
 }
-#searchBtn {
-    background-color: var(--lightblue);
-    color: white;
-    margin: 15px 0;
-}
-#clearBtn {
-    background-color: var(--darkblue);
-    color: white;
-    margin: 15px 0;
 
-}
-#previousSearch {
+#previous-search {
     border-top: solid black 2px;
 }
 
 .btn { /* All clickable buttons defaults*/
-    background-color: var(--gray);
     width: 100%;
     margin: 5px 0;
 }
 
 /* right hand column */
 #currentWeatherBox {
-    border: solid black 1px;
-    padding: 5px;
-    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid black 1px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 #error{
     padding: 20px;
     margin-left: 20px;
 }
-#weatherDisplay {
-    width: 75%;
-    padding: 10px;
-}
+
 .uvIndex {
     background: green;
     color: white;
@@ -94,11 +81,18 @@ h4 { /* the 5 populated dates under 5 day forecast*/
     display: flex;
     justify-content: space-between;
 }
-#fiveDays div {
-    background: linear-gradient(300deg, var(--lightblue), var(--darkblue));
+.forecastBox {
+    background: linear-gradient(300deg, cornflowerblue, var(--black));
+    line-height: 1;
     color: white;
     width: calc(20% - 10px);
-    padding: 5px;
+    padding: 10px 0px 10px 10px;
+}
+
+.iconRow {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 .icon {
     width: 50px;
