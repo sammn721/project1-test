@@ -1,9 +1,9 @@
 var idd = [];
 var data1;
 var data2;
-var mindist = $('#mindistInput').val();
-var maxdist = $('#maxdistInput').val();
-var radius = $('#radiusInput').val();
+var mindistEl = $('#mindistInput');
+var maxdistEl = $('#maxdistInput');
+var radiusEl = $('#radiusInput');
 
 function filterAndSortData(data) {
     var info = [];
@@ -69,7 +69,7 @@ function searchTrailsByCoordinates (lon, lat, radius) {
     })
     .then(function (local) {
         var trailsData = local.data;
-        trailsDisplayed(filterAndSortData(trailsData), 0, 20);
+        trailsDisplayed(filterAndSortData(trailsData), mindistEl.val(), maxdistEl.val());
         return (trailsData);
     })
     .catch(function (error) {
