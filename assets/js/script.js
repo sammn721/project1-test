@@ -106,7 +106,10 @@ function searchWeatherByCity() {
         var cityLat = `lat=${local.coord.lat}`;
         var cityLon = `lon=${local.coord.lon}`;
         searchWeatherByCoordinates(cityLat, cityLon);
-        searchTrailsByCoordinates(cityLon, cityLat);
+        radius = parseFloat($('#radiusInput').val());
+        mindist = parseFloat($('#mindistInput').val());
+        maxdist = parseFloat($('#maxdistInput').val());
+        searchTrailsByCoordinates(cityLon, cityLat, radius);
     })
     .catch(function (error) {
         return error;
@@ -123,6 +126,9 @@ function clearSearchbox() {
     searchEl.empty();
     searchEl.append(`
         <input type="search" placeholder="Search for a city" class="form-control" id="searchInput">
+        <input type="search" placeholder="Search radius (miles)" class="form-control" id="radiusInput">
+        <input type="search" placeholder="Minimum trail length (miles)" class="form-control" id="mindistInput">
+        <input type="search" placeholder="Maximum trail length (miles)" class="form-control" id="maxdistInput">
         <button type="submit" class="waves-effect waves-light amber accent-4 btn" id="searchBtn">Search</button>
     `)
 }
